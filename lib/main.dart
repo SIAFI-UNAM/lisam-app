@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:lisam_app_demo/core/services/camera.service.dart';
+import 'package:lisam_app_demo/pages/realtime_page/realtime_page.page.dart';
 
-void main() => runApp(const LisamDemoApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CameraService.initCameraService();
+
+  runApp(const LisamDemoApp());
+}
 
 class LisamDemoApp extends StatelessWidget {
   const LisamDemoApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('LISAM'),
-        ),
-        body: const Center(
-          child: Text('Demo app'),
-        ),
-      ),
+    return const MaterialApp(
+      title: 'LISAM DEMO APP',
+      home: RealTimePage(),
     );
   }
 }
