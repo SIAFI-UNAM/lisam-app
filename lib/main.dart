@@ -15,6 +15,7 @@ class LisamDemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'LISAM DEMO APP',
       home: RealTimePage(),
     );
