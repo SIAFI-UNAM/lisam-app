@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lisam_app_demo/core/services/camera.service.dart';
-import 'package:lisam_app_demo/pages/realtime_page/realtime_page.page.dart';
+import 'package:lisam_app_demo/pages/capture_sign_page/capture_sign.page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ class LisamDemoApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'LISAM DEMO APP',
-      home: RealTimePage(),
+      home: CaptureSignPage(),
     );
   }
 }
