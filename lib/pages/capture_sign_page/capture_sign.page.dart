@@ -1,11 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:lisam_app_demo/core/enums/camera_status.enum.dart';
-import 'package:lisam_app_demo/core/services/camera.service.dart';
-import 'package:lisam_app_demo/pages/capture_sign_page/widgets/buttons/capture_sign_button.widget.dart';
-import 'package:lisam_app_demo/pages/capture_sign_page/widgets/buttons/delete_button.widget.dart';
-import 'package:lisam_app_demo/pages/capture_sign_page/widgets/letters_container.widget.dart';
-import 'package:lisam_app_demo/pages/capture_sign_page/widgets/letters_tile.widget.dart';
+import 'package:lisam_app/core/enums/camera_status.enum.dart';
+import 'package:lisam_app/core/services/camera.service.dart';
+import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/capture_sign_button.widget.dart';
+import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/delete_button.widget.dart';
+import 'package:lisam_app/pages/capture_sign_page/widgets/letters_container.widget.dart';
+import 'package:lisam_app/pages/capture_sign_page/widgets/letters_tile.widget.dart';
 
 class CaptureSignPage extends StatefulWidget {
   const CaptureSignPage({Key? key}) : super(key: key);

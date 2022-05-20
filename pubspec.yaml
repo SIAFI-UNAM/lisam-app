@@ -1,4 +1,4 @@
-name: lisam_app_demo
+name: lisam_app
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -46,6 +46,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_app_name: ^0.1.0
+
+flutter_app_name:
+  name: "LISAM"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
