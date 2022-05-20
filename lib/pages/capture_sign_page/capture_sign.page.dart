@@ -14,7 +14,7 @@ class CaptureSignPage extends StatefulWidget {
 class _CaptureSignPageState extends State<CaptureSignPage> {
   late CameraController controller;
   CameraStatus cameraStatus = CameraStatus.loading;
-  List<String> sings = [];
+  List<String> signs = [];
 
   @override
   void initState() {
@@ -72,7 +72,7 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
                   child: Padding(
                       padding:
                           const EdgeInsets.only(top: 40, left: 30, right: 30),
-                      child: LettersTile(letters: sings)),
+                      child: LettersTile(letters: signs)),
                 )),
             Positioned(
               bottom: 230,
@@ -102,10 +102,10 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
   }
 
   void captureSign() => setState(() {
-        sings.add("A");
+        signs.add("A");
       });
 
   void clearSings() => setState(() {
-        sings.clear();
+        signs.clear();
       });
 }
