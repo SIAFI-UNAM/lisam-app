@@ -5,8 +5,10 @@ class ImageInferenceResponse {
 
   ImageInferenceResponse(this.inferenceResults);
 
-  factory ImageInferenceResponse.fromMap(Map<String, dynamic> map) =>
-      ImageInferenceResponse(map['inferenceResults']
-          .map((result) => InferenceResult.fromMap(result))
-          .toList());
+  factory ImageInferenceResponse.fromMap(Map<String, dynamic> map) {
+    final List<dynamic> inferenceResults = map['inferenceResults'];
+
+    return ImageInferenceResponse(
+        inferenceResults.map((e) => InferenceResult.fromMap(e)).toList());
+  }
 }
