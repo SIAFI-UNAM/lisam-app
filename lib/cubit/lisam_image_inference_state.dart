@@ -12,13 +12,16 @@ class LisamImageInferenceCameraError extends LisamImageInferenceState {}
 class LisamImageInferenceOnRun extends LisamImageInferenceState {
   final bool isLoading;
   final List<String> signs;
+  final bool isLastInferenceEmpty;
 
-  LisamImageInferenceOnRun(this.isLoading, this.signs);
+  LisamImageInferenceOnRun(
+      this.isLoading, this.signs, this.isLastInferenceEmpty);
 
   factory LisamImageInferenceOnRun.empty() =>
-      LisamImageInferenceOnRun(false, const []);
+      LisamImageInferenceOnRun(false, const [], false);
 
-  LisamImageInferenceOnRun copyWith({bool? isLoading, List<String>? signs}) =>
-      LisamImageInferenceOnRun(
-          isLoading ?? this.isLoading, signs ?? this.signs);
+  LisamImageInferenceOnRun copyWith(
+          {bool? isLoading, List<String>? signs, bool? isLastInferenceEmpty}) =>
+      LisamImageInferenceOnRun(isLoading ?? this.isLoading, signs ?? this.signs,
+          isLastInferenceEmpty ?? this.isLastInferenceEmpty);
 }
