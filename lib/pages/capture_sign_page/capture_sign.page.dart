@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lisam_app/core/services/camera.service.dart';
 import 'package:lisam_app/cubit/lisam_image_inference_cubit.dart';
 import 'package:lisam_app/pages/capture_sign_page/screens/loading.screen.dart';
@@ -8,6 +9,7 @@ import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/capture_sign_b
 import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/delete_button.widget.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/letters_container.widget.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/letters_tile.widget.dart';
+import 'package:lisam_app/widgets/toasts/message_toast.widget.dart';
 
 class CaptureSignPage extends StatefulWidget {
   const CaptureSignPage({Key? key}) : super(key: key);
@@ -18,10 +20,14 @@ class CaptureSignPage extends StatefulWidget {
 
 class _CaptureSignPageState extends State<CaptureSignPage> {
   late CameraController cameraController;
+  late FToast fToast;
 
   @override
   void initState() {
     super.initState();
+    fToast = FToast();
+    fToast.init(context);
+
     initCameraController();
   }
 
@@ -36,7 +42,19 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeigth = MediaQuery.of(context).size.height;
 
-    return BlocBuilder<LisamImageInferenceCubit, LisamImageInferenceState>(
+    return BlocConsumer<LisamImageInferenceCubit, LisamImageInferenceState>(
+      listener: (context, state) {
+        if (state is! LisamImageInferenceOnRun) {
+          return;
+        }
+
+        if (state.isLastInferenceEmpty) {
+          fToast.showToast(
+            child: const MessageToast(message: 'No se reconoció ninguna seña'),
+            gravity: ToastGravity.BOTTOM,
+          );
+        }
+      },
       builder: (context, state) {
         if (state is LisamImageInferenceLoadingCamera) {
           return const LoadingScreen();
