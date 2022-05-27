@@ -112,25 +112,24 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
     lisamImageInferenceCubit.clearSigns();
   }
 
-  void initCameraController() {
+  void initCameraController() async {
     final lisamImageInferenceCubit = context.read<LisamImageInferenceCubit>();
     final camera = CameraService.mainCamera!;
     cameraController = CameraController(camera, ResolutionPreset.high);
-    cameraController.initialize().then((_) {
+    try {
+      await cameraController.initialize();
       if (mounted) {
         lisamImageInferenceCubit.setOnRun();
       }
-    }).catchError((Object e) {
-      if (e is CameraException) {
-        switch (e.code) {
-          case 'CameraAccessDenied':
-            lisamImageInferenceCubit.setUnavailableCamera();
-            break;
-          default:
-            lisamImageInferenceCubit.setCameraError();
-            break;
-        }
+    } on CameraException catch (e) {
+      switch (e.code) {
+        case 'CameraAccessDenied':
+          lisamImageInferenceCubit.setUnavailableCamera();
+          break;
+        default:
+          lisamImageInferenceCubit.setCameraError();
+          break;
       }
-    });
+    }
   }
 }
