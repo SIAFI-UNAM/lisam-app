@@ -44,11 +44,7 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
 
     return BlocConsumer<LisamImageInferenceCubit, LisamImageInferenceState>(
       listener: (context, state) {
-        if (state is! LisamImageInferenceOnRun) {
-          return;
-        }
-
-        if (state.isLastInferenceEmpty) {
+        if (state is LisamImageLastInferenceEmpty) {
           fToast.showToast(
             child: const MessageToast(message: 'No se reconoció ninguna seña'),
             gravity: ToastGravity.BOTTOM,

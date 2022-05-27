@@ -22,15 +22,14 @@ class LisamImageInferenceCubit extends Cubit<LisamImageInferenceState> {
       final currentState = (state as LisamImageInferenceOnRun);
       final result = await LisamInferenceService.getFirstInferenceResult(image);
       if (result == null) {
-        emit(currentState.copyWith(
-            isLastInferenceEmpty: true, isLoading: false));
+        emit(LisamImageLastInferenceEmpty(false, currentState.signs));
         return;
       }
 
       emit(currentState.copyWith(
-          signs: [...currentState.signs, result.label],
-          isLoading: false,
-          isLastInferenceEmpty: false));
+        signs: [...currentState.signs, result.label],
+        isLoading: false,
+      ));
     }
   }
 
