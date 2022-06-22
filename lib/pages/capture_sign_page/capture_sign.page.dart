@@ -8,6 +8,7 @@ import 'package:lisam_app/cubit/lisam_image_inference_cubit.dart';
 import 'package:lisam_app/pages/capture_sign_page/screens/loading.screen.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/capture_sign_button.widget.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/delete_button.widget.dart';
+import 'package:lisam_app/pages/capture_sign_page/widgets/buttons/switch_camera_button.widget.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/letters_container.widget.dart';
 import 'package:lisam_app/pages/capture_sign_page/widgets/letters_tile.widget.dart';
 import 'package:lisam_app/widgets/toasts/message_toast.widget.dart';
@@ -91,7 +92,15 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  CameraService.hasDoubleCamera
+                      ? Positioned(
+                          top: 15,
+                          right: 15,
+                          child: SwitchCameraButton(
+                            onPressed: switchCamera,
+                          ))
+                      : Container()
                 ],
               ),
             ),
@@ -116,9 +125,21 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
     lisamImageInferenceCubit.clearSigns();
   }
 
-  void initCameraController() async {
+  void initCameraController() {
+    final camera = CameraService.currentCamera!;
+    cameraController = CameraController(camera, ResolutionPreset.high);
+    setCameraController(camera);
+  }
+
+  void switchCamera() {
+    CameraService.toggleCamera();
+    final camera = CameraService.currentCamera!;
+    cameraController = CameraController(camera, ResolutionPreset.high);
+    setCameraController(camera);
+  }
+
+  void setCameraController(CameraDescription camera) async {
     final lisamImageInferenceCubit = context.read<LisamImageInferenceCubit>();
-    final camera = CameraService.mainCamera!;
     cameraController = CameraController(camera, ResolutionPreset.high);
     try {
       await cameraController.initialize();
