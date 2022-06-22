@@ -14,7 +14,7 @@ class LisamLogoScreen extends StatelessWidget {
           const Text(
             'Bienvenido a LISAM',
             style: TextStyle(
-                color: Color.fromRGBO(2, 43, 58, 1),
+                color: Colors.blueGrey,
                 fontSize: 28,
                 fontWeight: FontWeight.bold),
           ),

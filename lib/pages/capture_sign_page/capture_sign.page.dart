@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lisam_app/constans/colors.dart';
 import 'package:lisam_app/core/services/camera.service.dart';
 import 'package:lisam_app/cubit/lisam_image_inference_cubit.dart';
 import 'package:lisam_app/pages/capture_sign_page/screens/loading.screen.dart';
@@ -61,7 +62,10 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
           final isLoading = state.isLoading;
 
           return Scaffold(
-            appBar: AppBar(title: const Text('LISAM')),
+            appBar: AppBar(
+              title: const Text('LISAM'),
+              backgroundColor: secondaryColor,
+            ),
             body: Center(
               child: Stack(
                 children: [

@@ -7,7 +7,7 @@ class DeleteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => FloatingActionButton(
         onPressed: onPressed,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.pink,
         child: const Icon(Icons.delete),
       );
 }

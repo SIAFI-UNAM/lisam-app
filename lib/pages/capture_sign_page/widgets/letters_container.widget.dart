@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lisam_app/constans/colors.dart';
 
 class LettersContainer extends StatelessWidget {
   final double width;
@@ -15,7 +16,7 @@ class LettersContainer extends StatelessWidget {
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
-        color: Colors.white,
+        color: mainColor,
       ),
       child: Padding(
           padding: const EdgeInsets.only(top: 40, left: 30, right: 30),

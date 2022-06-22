@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lisam_app/constans/colors.dart';
 
 class CaptureSignButton extends StatelessWidget {
   final void Function()? onPressed;
@@ -7,7 +8,7 @@ class CaptureSignButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buttonColor = onPressed == null ? Colors.grey : Colors.blue;
+    final buttonColor = onPressed == null ? Colors.grey : secondaryColor;
 
     return FloatingActionButton.extended(
       backgroundColor: buttonColor,

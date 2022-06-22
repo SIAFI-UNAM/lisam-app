@@ -7,12 +7,16 @@ class LettersTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const textColor = Colors.blueGrey;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
           "Letras:",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(
+            fontSize: 18,
+            color: textColor,
+          ),
         ),
         const SizedBox(height: 10),
         Wrap(
