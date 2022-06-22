@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lisam_app/config/routes.dart';
+import 'package:lisam_app/core/services/user_preferences.service.dart';
 
 class ContinueScreen extends StatelessWidget {
   const ContinueScreen({Key? key}) : super(key: key);
@@ -47,7 +48,9 @@ class ContinueScreen extends StatelessWidget {
     );
   }
 
-  void goToCaptureSign(BuildContext context) =>
-      Navigator.pushNamedAndRemoveUntil(
-          context, Routes.captureSign, (route) => false);
+  void goToCaptureSign(BuildContext context) {
+    UserPreferencesService.showStartedPage = false;
+    Navigator.pushNamedAndRemoveUntil(
+        context, Routes.captureSign, (route) => false);
+  }
 }
