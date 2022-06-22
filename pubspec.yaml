@@ -38,7 +38,6 @@ dependencies:
   http: ^0.13.4
   flutter_bloc: ^8.0.1
   fluttertoast: ^8.0.9
-  liquid_swipe: ^2.1.1
   shared_preferences: ^2.0.15
   flutter_svg: ^1.0.3
   provider: ^6.0.3
@@ -54,6 +53,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_app_name: ^0.1.0
+  icons_launcher: ^1.2.1
 
 flutter_app_name:
   name: "LISAM"
@@ -100,3 +100,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+flutter_icons:
+  image_path: 'assets/LISAM_logo.png'
+  ios: true
+  android: true
