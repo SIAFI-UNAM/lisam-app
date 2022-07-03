@@ -88,7 +88,9 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CaptureSignButton(
-                              onPressed: isLoading ? null : captureSign),
+                            onPressed: captureSign,
+                            isLoading: isLoading,
+                          ),
                         ],
                       ),
                     ),
