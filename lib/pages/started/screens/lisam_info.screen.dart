@@ -20,7 +20,7 @@ class LisamInfoScreen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40),
             child: Text(
-              'LISAM es una aplicación para reconocer el lenguaje de señas mexicano con Inteligencia artificial',
+              'LISAM es una aplicación para reconocer la lengua de señas mexicana con Inteligencia artificial',
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
