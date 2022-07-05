@@ -129,20 +129,22 @@ class _CaptureSignPageState extends State<CaptureSignPage> {
 
   void initCameraController() {
     final camera = CameraService.currentCamera!;
-    cameraController = CameraController(camera, ResolutionPreset.high);
     setCameraController(camera);
   }
 
   void switchCamera() {
     CameraService.toggleCamera();
     final camera = CameraService.currentCamera!;
-    cameraController = CameraController(camera, ResolutionPreset.high);
     setCameraController(camera);
   }
 
   void setCameraController(CameraDescription camera) async {
     final lisamImageInferenceCubit = context.read<LisamImageInferenceCubit>();
-    cameraController = CameraController(camera, ResolutionPreset.high);
+    cameraController = CameraController(
+      camera,
+      ResolutionPreset.high,
+      enableAudio: false,
+    );
     try {
       await cameraController.initialize();
       if (mounted) {
