@@ -35,7 +35,7 @@ class ContinueScreen extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () => goToCaptureSign(context),
               style: ElevatedButton.styleFrom(
-                primary: Colors.pink,
+                backgroundColor: Colors.pink,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 90, vertical: 15),
               ),
